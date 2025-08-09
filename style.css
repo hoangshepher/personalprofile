@@ -1,0 +1,452 @@
+:root {
+    --bg-light: #f5f5f5;
+    --bg-dark: #1e1e1e;
+    --text-light: #333;
+    --text-dark: #f1f1f1;
+    --accent: #007BFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    height: 100vh;
+    transition: background 0.3s, color 0.3s;
+    background: var(--bg-light);
+    color: var(--text-light);
+}
+body.light {
+    background-image: url(light-background.jpg);
+    color: #333; 
+}
+body.dark {
+    background-image: url(dark-background.jpg);
+    color: #f1f1f1;
+}
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease-in-out;color: #333;  
+}
+
+
+.layout-container {
+    display: block;
+    width: 100%;
+}
+
+
+/* AVATAR */ 
+.panel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 25px;
+    padding: 30px;
+    border: 1px solid #ffffff40;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); 
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    }
+
+.image {
+  position: relative;
+  height: 150px;
+  width: 150px;
+}
+
+.image .avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.profile-card h2 {
+    margin: 10px 0 5px;
+}
+
+.data-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 15px;
+}
+
+.data-profile h2 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.data p {
+    font-size: 20px;
+}
+
+
+
+/* MIDDLE - MENU */
+.container-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.middle-menu {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px; /* Bo góc đẹp */
+    width: 50%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+}
+.menu-buttons {
+    margin-left: 90px;
+    display: flex;
+    gap: 90px;
+    flex-grow: 1;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.tab-btn {
+    writing-mode: vertical-rl;
+    transform: rotate(-90deg);
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    padding: 5px 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: inherit;
+    position: relative;
+    
+}
+
+.tab-btn.active {
+    display: inline-block;
+    padding: 5px 5px;
+    background: rgba(0, 123, 255, 0.1);
+    box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.2);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+/* Toggle */
+.theme-toggle {
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    flex-direction: row;
+}
+
+.theme-switch {
+    width: 40px;
+    height: 20px;
+    background: #999;
+    border-radius: 10px;
+    position: relative;
+    transition: background 0.3s;
+    margin-right: 10px;
+}
+
+.theme-switch::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+body.dark .theme-switch {
+    background: #555;
+
+}
+
+body.dark .theme-switch::after {
+    transform: translateX(20px);
+}
+
+
+/* CONTENT */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    overflow: hidden; /* ✅ không scroll */
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* box content*/
+.card-slider {
+    /*display: none;*/
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    transition: opacity 0.4s ease;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    padding: 0; /* vì .card-box đã có padding rồi */
+    background: transparent; /* ✅ bỏ nền */
+    backdrop-filter: none;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+/* Box title: about me, skill, project,... */ 
+.section-title-box {
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 30px auto 35px auto; /* ⬅ Top: 30px, Bottom: 35px */
+    padding: 12px 24px;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    color: var(--text-light);
+    width: fit-content;
+}
+
+/* Box title change to dark mode  */ 
+body.dark .section-title-box {
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-dark);
+}
+
+/* cấu hình display của trang about me */
+.card-slider.active {
+    /*display: block;*/
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    pointer-events: auto;
+
+}
+
+.section-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+}
+.card-box {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+body.dark .card-box {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.card-item {
+    width: 100%;
+    max-width: 280px;
+    height: 230px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+}
+
+.card-item img {
+    width: 130px; 
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.card-item:hover {
+    transform: translateY(-5px);
+}
+
+body.dark .card-item {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #f1f1f1;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    width: 100%;
+}
+
+.card-item {
+    width: 100%;
+    max-width: 260px;
+    height: 220px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    justify-content: center;
+}
+
+.card-item img{
+    width: 100px;
+    height: 900px;
+    margin-bottom: 15px;
+}
+
+
+.card-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: inherit;
+}
+
+ /* Chỉnh vị trí ảnh hiển thị digital internet*/ 
+.top-focus {
+    object-position: 50% 22%;
+}
+
+ /* Chỉnh vị trí ảnh hiển thị volleybal*/ 
+.top-max-focus {
+    object-position: 50% 10%;
+}
+
+
+/* Cấu hình chung các card-image*/ 
+.card-grid img {
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;  
+}
+
+
+
+/* CONTACT - CONTENT */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    outline: none;
+}
+
+body.dark form input,
+body.dark form textarea {
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid #666;
+    color: #f1f1f1;
+}
+
+form button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+#form-status {
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+

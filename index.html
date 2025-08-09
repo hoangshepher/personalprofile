@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    
+  </head>
+
+  <body class="light">
+    <div class="layout-container">
+      
+      <!-- LEFT -->
+      <aside class="panel">
+        <div class="profile-card">
+          <div class="image">
+            <img src="profile.jpg" class="avatar" alt="Avatar">
+          </div>
+          <div class="data-profile">
+            <h2>Diệp Hoàng Phúc</h2>
+            <p>Software Engineer</p>
+          </div>
+          
+        </div>
+      </aside>
+
+      <!-- MIDDLE MENU -->
+      <div class="container-menu">
+        <nav class="middle-menu">
+          <div class="menu-buttons">
+            <button class="tab-btn active" data-tab="about">About</button>
+            <button class="tab-btn" data-tab="skills">Skills</button>
+            <button class="tab-btn" data-tab="projects">Projects</button>
+            <button class="tab-btn" data-tab="contact">Contact</button>
+          </div>
+          <div class="theme-toggle" id="toggle-theme">
+            <span id="theme-icon">🌞</span>
+            <div class="theme-switch"></div>
+          </div>
+        </nav>
+      </div>
+      
+
+      <!-- CONTENT -->
+      <main class="content">
+
+        <!-- ABOUT -->
+        <section class="card-slider active" id="about">
+          <h2 class="section-title-box">About Me</h2>
+          <div class="card-grid">
+            <div class="card-item">
+              <img src="image_cards/Digital_Internet.jpg" alt="Digital_Internet" class="card-image top-focus" />
+              <p>Tôi yêu thích công nghệ, thích học hỏi và tìm tòi nhiều thứ mới về thời đại công nghệ số</p>
+            </div>
+            <div class="card-item">
+              <img src="image_cards/IT.jpg" alt="IT" class="card-image" />
+              <p>Tôi là sinh viên của Viện NIIE, chuyên ngành của tôi là Công Nghệ Thông Tin</p>
+            </div>
+            <div class="card-item">
+              <img src="image_cards/volleybal.jpg" alt="volleyball" class="card-image top-max-focus" />
+              <p>Bóng chuyền là một trong những môn thể thao yêu thích của tôi</p>
+            </div>
+            <div class="card-item">
+              <img src="image_cards/learning.jpg" alt="learning" class="card-image" />
+              <p>Luôn học hỏi và không ngừng phát triển bản thân mình </p>
+            </div>
+          </div>
+        </section>
+  
+
+        <!-- SKILLS -->
+        <section class="card-slider" id="skills">
+          <span></span>
+          <h2 class="section-title-box">My Skills</h2>
+          <div class="card-grid">
+            <div class="card-item">
+              <img src="image_skills/html.jpeg" alt="HTML/CSS" class="card-image" />
+              <p>HTML/CSS</p>
+            </div>
+            <div class="card-item">
+              <img src="image_skills/javascript.jpg" alt="JavaScript" class="card-image" />
+              <p>JavaScript</p>
+            </div>
+            <div class="card-item">
+              <img src="image_skills/C++.jpg" alt="C++" class="card-image" />
+              <p>C++</p>
+            </div>
+            <div class="card-item">
+              <img src="image_skills/python.jpg" alt="PYTHON" class="card-image" />
+              <p>Python</p>
+            </div>
+            
+            
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="card-slider" id="projects">
+          <h2 class="section-title-box"> My Projects</h2>
+          <div class="card-grid">
+            <div class="card-item">
+              <img src="image_projects/web.png" alt="Portfolio" class="card-image" />
+              <p>Trang web cá nhân của riêng bản thân tôi</p>
+            </div>
+            <div class="card-item">
+              <img src="image_projects/Hangman_game.png" alt="Hangman Game" class="card-image" />
+              <p>Hangman Game</p>
+            </div>
+            <div class="card-item">
+              <img src="image_projects/qlks.png" alt="Quản lý khách sạn" class="card-image" />
+              <p>Quản lý khách sạn</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="card-slider" id="contact">
+          <h2 class="section-title-box">Contact</h2>
+
+          <form id="contactForm">
+            <label for="name">Tên của bạn:</label>
+            <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="example@gmail.com">
+
+            <label for="message">Tin nhắn:</label>
+            <textarea id="message" name="message" required placeholder="Viết tin nhắn..."></textarea>
+
+            <button type="submit">Gửi liên hệ</button>
+            <p id="form-status"></p>
+          </form>
+          <p>Email: <a href="mailto:dhoangphuc1007@gmail.com">dhoangphuc1007@gmail.com</a></p>
+          <p>SDT: 0911324338</p>
+        </section>
+      </main>
+
+    </div>
+
+  </body>
+</html>
